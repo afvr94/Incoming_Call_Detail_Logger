@@ -163,9 +163,9 @@ def exec_AT_cmd(modem_AT_cmd, expected_response="OK"):
         # Return command execution status
         return execution_status
 
-    except:
+    except Exception as e:
         disable_modem_event_listener = False
-        print ("Error: Failed to execute the command")
+        print ("Error: Failed to execute the command", e)
         return False        
 #=================================================================
 
@@ -196,8 +196,8 @@ def read_AT_cmd_response(expected_response="OK"):
             elif (datetime.now()-start_time).seconds > MODEM_RESPONSE_READ_TIMEOUT:
                 return False
 
-    except:
-        print ("Error in read_modem_response function...")
+    except Exception as e:
+        print ("Error in read_modem_response function...", e)
         return False
 #=================================================================
 

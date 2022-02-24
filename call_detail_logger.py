@@ -10,6 +10,7 @@
 
 
 import serial
+import sys
 import threading
 import atexit
 from datetime import datetime

@@ -110,9 +110,9 @@ def init_modem_settings():
 
     # Initialize the Modem
     try:
-        # Flush any existing input outout data from the buffers
-        analog_modem.flushInput()
-        analog_modem.flushOutput()
+        # # Flush any existing input outout data from the buffers
+        # analog_modem.flushInput()
+        # analog_modem.flushOutput()
 
         # Test Modem connection, using basic AT command.
         if not exec_AT_cmd("AT"):

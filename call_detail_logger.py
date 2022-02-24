@@ -218,7 +218,7 @@ def monitor_modem_line():
             modem_data = analog_modem.readline().decode("utf-8")
             
             if modem_data != "":
-                print (modem_data)
+                print ("modem data incoming ->", modem_data)
 
                 if ("DATE" in modem_data):
                     call_record['DATE'] = (modem_data[5:]).strip(' \t\n\r')

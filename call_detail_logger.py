@@ -216,7 +216,6 @@ def monitor_modem_line():
     while 1:
         if not disable_modem_event_listener:
             modem_data = analog_modem.readline().decode("utf-8")
-            print("readline", analog_modem.readline())
             
             if modem_data != "":
                 print (modem_data)

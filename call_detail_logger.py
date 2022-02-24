@@ -184,10 +184,10 @@ def read_AT_cmd_response(expected_response="OK"):
     try:
         while 1:
             # Read Modem Data on Serial Rx Pin
-            modem_response = analog_modem.readline()
+            modem_response = analog_modem.readline().decode("utf-8")
             print (modem_response)
             # Recieved expected Response
-            if expected_response.decode("utf-8") == modem_response.strip(' \t\n\r' + chr(16)):
+            if expected_response == modem_response.strip(' \t\n\r' + chr(16)):
                 return True
             # Failed to execute the command successfully
             elif "ERROR" in modem_response.strip(' \t\n\r' + chr(16)):

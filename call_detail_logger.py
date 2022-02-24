@@ -109,38 +109,38 @@ def init_modem_settings():
         sys.exit()
 
     # Initialize the Modem
-    try:
-        # Flush any existing input outout data from the buffers
-        analog_modem.flushInput()
-        analog_modem.flushOutput()
+    # try:
+    # Flush any existing input outout data from the buffers
+    analog_modem.flushInput()
+    analog_modem.flushOutput()
 
-        # Test Modem connection, using basic AT command.
-        if not exec_AT_cmd("AT"):
-            print ("Error: Unable to access the Modem")
+    # Test Modem connection, using basic AT command.
+    if not exec_AT_cmd("AT"):
+        print ("Error: Unable to access the Modem")
 
-        # reset to factory default.
-        if not exec_AT_cmd("ATZ3"):
-            print ("Error: Unable reset to factory default")          
-            
-        # Display result codes in verbose form  
-        if not exec_AT_cmd("ATV1"):
-            print ("Error: Unable set response in verbose form")  
+    # reset to factory default.
+    if not exec_AT_cmd("ATZ3"):
+        print ("Error: Unable reset to factory default")          
+        
+    # Display result codes in verbose form  
+    if not exec_AT_cmd("ATV1"):
+        print ("Error: Unable set response in verbose form")  
 
-        # Enable Command Echo Mode.
-        if not exec_AT_cmd("ATE1"):
-            print ("Error: Failed to enable Command Echo Mode")       
+    # Enable Command Echo Mode.
+    if not exec_AT_cmd("ATE1"):
+        print ("Error: Failed to enable Command Echo Mode")       
 
-        # Enable formatted caller report.
-        if not exec_AT_cmd("AT+VCID=1"):
-            print ("Error: Failed to enable formatted caller report.")
-            
-        # Flush any existing input outout data from the buffers
-        analog_modem.flushInput()
-        analog_modem.flushOutput()
+    # Enable formatted caller report.
+    if not exec_AT_cmd("AT+VCID=1"):
+        print ("Error: Failed to enable formatted caller report.")
+        
+    # Flush any existing input outout data from the buffers
+    analog_modem.flushInput()
+    analog_modem.flushOutput()
 
-    except:
-        print ("Error: unable to Initialize the Modem")
-        sys.exit()
+    # except:
+    #     print ("Error: unable to Initialize the Modem")
+    #     sys.exit()
 #=================================================================
 
 
